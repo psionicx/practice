@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>System Breach</title>
+  <style>
+    body {
+      background-color: black;
+      color: red;
+      font-family: "Courier New", Courier, monospace;
+      text-align: center;
+      padding-top: 100px;
+      animation: flicker 0.1s infinite alternate;
+    }
+
+    h1 {
+      font-size: 48px;
+      text-shadow: 0 0 5px red;
+    }
+
+    p {
+      font-size: 24px;
+      margin-top: 30px;
+    }
+
+    @keyframes flicker {
+      from { opacity: 1; }
+      to { opacity: 0.8; }
+    }
+
+    .terminal {
+      margin-top: 50px;
+      font-size: 18px;
+      color: lime;
+      background: black;
+      padding: 20px;
+      border: 1px solid lime;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>⚠️ SYSTEM BREACH DETECTED ⚠️</h1>
+  <p>Your device has been hacked.</p>
+  <div class="terminal" id="terminal"></div>
+
+  <script>
+    const terminal = document.getElementById("terminal");
+    const fakeLogs = [
+      "[Access Granted] - Root privileges obtained...",
+      "Injecting payload...",
+      "Disabling antivirus...",
+      "Downloading sensitive data...",
+      "Uploading files to remote server...",
+      "Erasing logs...",
+      "Connection terminated."
+    ];
+
+    let i = 0;
+    function typeLine() {
+      if (i < fakeLogs.length) {
+        const line = document.createElement("div");
+        line.textContent = fakeLogs[i];
+        terminal.appendChild(line);
+        i++;
+        setTimeout(typeLine, 1000);
+      } else {
+        const done = document.createElement("div");
+        done.textContent = ">> Eme, Char, Gotchaaa";
+        done.style.color = "gray";
+        terminal.appendChild(done);
+      }
+    }
+
+    setTimeout(typeLine, 1500);
+  </script>
+</body>
+</html>
